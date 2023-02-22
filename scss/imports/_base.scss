@@ -1,4 +1,10 @@
-@import url(font/stylesheet.css);
+@font-face {
+  font-family: "futura_stdlight";
+  src: url("font/futurastd-light-webfont-webfont.woff2") format("woff2"),
+    url("font/futurastd-light-webfont-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
 
 html {
   --basil-green: #88a308;
@@ -49,6 +55,7 @@ h3 {
 
 h2 {
   font-size: 2rem;
+  text-transform: capitalize;
 }
 
 a {

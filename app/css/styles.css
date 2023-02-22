@@ -1,4 +1,9 @@
-@import url(font/stylesheet.css);
+@font-face {
+  font-family: "futura_stdlight";
+  src: url("font/futurastd-light-webfont-webfont.woff2") format("woff2"), url("font/futurastd-light-webfont-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
 html {
   --basil-green: #88a308;
   --dark-gray: #333333;
@@ -45,6 +50,7 @@ h3 {
 
 h2 {
   font-size: 2rem;
+  text-transform: capitalize;
 }
 
 a {
@@ -135,8 +141,13 @@ nav a {
   color: #fff;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
   border-radius: 6px;
-  min-width: 120px;
+  min-width: 90px;
   display: inline-block;
+}
+@media (min-width: 46.25em) {
+  nav a {
+    min-width: 120px;
+  }
 }
 nav .nav-storeit a {
   background: linear-gradient(to bottom, #fcde41 1%, #dfa910 100%);
@@ -215,6 +226,58 @@ footer {
   footer {
     grid-area: footer;
   }
+}
+
+.modal {
+  max-width: 600px;
+  min-width: 400px;
+  padding: 2rem;
+  border-radius: 5px;
+  min-height: 200px;
+  border: 2px solid var(--orange);
+  background: white;
+  transform: translateY(200%);
+  transition: transform 1s;
+}
+
+.modal-outer.open .modal {
+  transform: translateY(0);
+}
+
+.closer {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: #fff;
+  color: var(--orange);
+  border: 4px solid var(--orange);
+  border-radius: 50%;
+  text-align: center;
+  line-height: 1.5rem;
+  cursor: pointer;
+}
+
+.modal-outer {
+  display: grid;
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+  /* Hide this until we need it */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+
+.modal-outer.open {
+  opacity: 1;
+  pointer-events: all;
 }
 
 /*# sourceMappingURL=styles.css.map */
